@@ -17,7 +17,7 @@ angular.module('Login', ['ngMaterial','ngRoute'])
             };
             $http({
                 method: 'POST',
-                url: '/auth',
+                url: '/login/',
                 json: true,
                 headers: {
                     "content-type": "application/json"
