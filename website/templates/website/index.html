@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="Login">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Home</title>
+  <link rel="stylesheet" href="/static/stylesheets/css.css">
+
+
+  <link rel="stylesheet" href="../../../static/stylesheets/angular-material.min.css">
+
+
+  <link rel="stylesheet" href="../../../static/stylesheets/angular_style.css">
+
+
+  <script src="../../../static/javascripts/angular.min.js"></script>
+  <script src="../../../static/javascripts/angular-animate.min.js"></script>
+  <script src="../../../static/javascripts/angular-aria.min.js"></script>
+  <script src="../../../static/javascripts/angular-messages.min.js"></script>
+  <script src="../../../static/javascripts/angular-resource.min.js"></script>
+
+
+  <!-- Angular Material Library -->
+  <script src="../../../static/javascripts/angular-route.js"></script>
+
+  <script src="../../../static/javascripts/angular-material.min.js"></script>
+  <script src="../../../static/javascripts/login_page.js"></script>
+
+
+
+</head>
+<body >
+
+<div ng-controller="AppCtrl"  ng-cloak="" layout-fill >
+    <img ng-src="http://2.bp.blogspot.com/-hf4LoCd-tyA/TmMPB-Qur3I/AAAAAAAAARI/e_bpi5Vc6CI/s1600/gitam.jpg" align="middle" style="
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+" class="md-card-image" alt="user avatar">
+  <md-content md-theme="docs-dark"  layout-gt-sm="row" layout-padding>
+    <div style="
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+" >
+
+      <md-input-container>
+        <label>PIN</label>
+        <input ng-model="pin">
+      </md-input-container>
+      <md-input-container>
+        <label>password</label>
+        <input ng-model="password" type="password">
+      </md-input-container>
+      <md-button class="md-raised" ng-click="go();">Login</md-button>
+    </div>
+  </md-content>
+
+</div>
+</body>
+</html>

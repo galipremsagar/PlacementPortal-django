@@ -1,0 +1,122 @@
+<div layout="row" layout-align="center center" style="width: 100%;">
+    <md-content layout-padding="" style="overflow: hidden;">
+
+        <div >
+            <form name="userForm">
+                <div class="bottom-sheet-demo inset" layout="row" layout-sm="column" layout-align="center" >
+                    <md-button class="md-raised md-warn" ng-click="clear();">CLEAR</md-button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <md-button class="md-raised " ng-click="get_list();disabled=true;">SHOW STUDENTS</md-button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <md-button class="md-raised " ng-click="send();disabled=false" ng-disabled="!disabled;">SEND NOTIFICATIONS</md-button>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-xs="">
+                        <label>Company name</label>
+                        <input ng-model="companyName" required="Mandatory">
+                    </md-input-container>
+
+                </div>
+
+                <div layout-gt-xs="row">
+                    <md-input-container class="md-block" flex-gt-xs="">
+                        <label>CTC</label>
+                        <input name="CostToCompany" ng-model="ctc" required="" md-maxlength="10">
+                    </md-input-container>
+
+
+                    <md-datepicker ng-model="dateOfPlacementDrive" required="" md-placeholder="Date of Placement" >
+                        <label>Date of Placement Drive</label>
+                    </md-datepicker>
+                </div>
+
+                <div layout-gt-xs="column">
+                    <md-input-container class="md-block" flex-gt-xs="">
+                        <label>Company Type</label>
+                        <input ng-model="companyType" required="">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-xs="">
+                        <label>Job Role</label>
+                        <input ng-model="jobRole" required="">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-xs="">
+                        <label>Company Logo URL</label>
+                        <input ng-model="logoUrl" required="">
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Job Description</label>
+                        <textarea ng-model="jobDescription" columns="1" md-maxlength="1300" rows="5" required="" ></textarea>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Placement Drive Process</label>
+                        <textarea ng-model="driveProcess" columns="1" md-maxlength="1300" rows="5" required="" ></textarea>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-xs="">
+                        <label>Venue</label>
+                        <input ng-model="venue" required="" >
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-xs="">
+                        <label>Reporting time</label>
+                        <input ng-model="reportingTime" required="">
+                    </md-input-container>
+
+                </div>
+
+
+
+                <md-input-container class="md-block">
+                    <label>Company Description</label>
+                    <textarea ng-model="companyDescription" columns="1" md-maxlength="300" rows="5" required="" ></textarea>
+                </md-input-container>
+
+
+
+                <md-chips ng-model="branchNames" >
+                    <md-chip-template>
+                        <strong>{{$chip}}</strong>
+
+                    </md-chip-template>
+                </md-chips>
+
+                <br><br>
+                <div layout>
+                    <div flex="10" layout layout-align="center center">
+                        <span class="md-body-1">B.Tech CGPA Cutoff</span>
+                    </div>
+                    <md-slider flex step="0.01" min="0" max="10" ng-model="cutoff_cgpa" required="" aria-label="red" id="red-slider" class>
+                    </md-slider>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div flex="20" layout layout-align="center center">
+                        <input flex type="number" ng-model="cutoff_cgpa" aria-label="red" aria-controls="red-slider" required="">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
+            <md-tab ng-repeat="branch in branches"
+                    ng-disabled="branch.disabled"
+                    label="{{branch.title}}">
+                <div class="demo-tab branch{{$index%4}}" style="padding: 25px; text-align: center;">
+                    <md-list-item ng-repeat="student in branch.students">
+
+                        <md-checkbox class="md-primary" ng-model="student.eligible">
+
+                        </md-checkbox>
+                        <p style="text-align: left;">{{ student.name }}:{{ student.pin}}</p>
+                    </md-list-item>
+                </div>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+
+</div>
